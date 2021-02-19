@@ -59,7 +59,7 @@ class RayServiceProvider extends ServiceProvider
         $this->app->singleton(Settings::class, function () {
             $configSettings = SettingsFactory::getSettingsFromConfig($this->app->configPath());
 
-            if (empty($configSettings)) {
+            if (count($configSettings) === 0) {
                 return SettingsFactory::createFromArray($this->getDefaults());
             }
 
